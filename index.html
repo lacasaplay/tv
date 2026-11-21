@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LA MÁFIA 121 | Entretenimento</title>
+<meta name="description" content="La Máfia 121: conheça nossos planos de entretenimento, programação variada, filmes e séries. Fale com nossa equipe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@500;700&family=Lora:ital@1&family=Playfair+Display:ital,wght@0,700;0,900;1,500&display=swap">
+<style>
+:root {
+  --bg: oklch(0.145 0.002 30);
+  --fg: oklch(0.93 0.005 78);
+  --card: oklch(0.165 0.003 30);
+  --muted: oklch(0.62 0.015 60);
+  --accent: oklch(0.72 0.16 78);
+  --accent-ink: oklch(0.15 0.005 30);
+  --line: oklch(0.24 0.005 30);
+  --neon: oklch(0.58 0.25 25);
+  --neon-hi: oklch(0.64 0.27 25);
+  --wa: oklch(0.58 0.19 145);
+  --tg: oklch(0.58 0.18 240);
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-serif: 'Lora', ui-serif, Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--font-sans); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0; overflow-x: hidden;
+}
+main { position: relative; max-width: 46rem; margin: 0 auto; padding-block: 2.5rem 3rem; }
+.glow { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at top, oklch(0.3 0.12 25 / .35), transparent 55%); }
+#embers { position: fixed; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
+.wrap { position: relative; z-index: 1; }
+section { padding-block: 0 3.5rem; text-align: center; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.4rem, 9vw, 4rem); font-weight: 900; line-height: 1.08; margin-top: 1.4rem; }
+h2 { font-size: clamp(1.5rem, 5vw, 1.9rem); font-weight: 700; margin-bottom: 1.5rem; }
+.accent { color: var(--accent); }
+.eyebrow { display: inline-block; border: 1px solid oklch(0.72 0.16 78 / .3); background: oklch(0.72 0.16 78 / .07); color: var(--accent); border-radius: 999px; padding: .4rem 1rem; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.neon-badge { display: inline-block; border-radius: 999px; padding: .5rem 1rem; font-size: .75rem; font-weight: 700; letter-spacing: .03em; color: oklch(0.88 0.2 25); border: 1px solid oklch(0.62 0.28 25 / .9); background: oklch(0.42 0.19 25 / .28); box-shadow: 0 0 8px oklch(0.62 0.28 25 / .8), 0 0 22px oklch(0.58 0.25 25 / .5), inset 0 0 14px oklch(0.58 0.25 25 / .16); animation: pulse 2.1s ease-in-out infinite; }
+.sub { font-family: var(--font-serif); font-style: italic; color: var(--muted); max-width: 40rem; margin: 1rem auto 0; }
+.rule { display: flex; align-items: center; gap: .75rem; max-width: 10rem; margin: 1.2rem auto; }
+.rule::before, .rule::after { content: ""; height: 1px; flex: 1; background: oklch(0.72 0.16 78 / .5); }
+.rule i { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+.lead { max-width: 38rem; margin: 0 auto; color: var(--muted); }
+.lead strong { color: var(--accent); }
+.phone { position: relative; width: 100%; max-width: 370px; margin: 1.5rem auto 0; border: 2px solid var(--line); border-radius: 2rem; background: var(--card); padding: .5rem; box-shadow: 0 25px 50px oklch(0 0 0 / .5); }
+.phone .screen { aspect-ratio: 9 / 16; border-radius: 1rem; overflow: hidden; background: var(--bg); position: relative; }
+.phone iframe, .phone video { width: 100%; height: 100%; border: 0; display: block; object-fit: cover; background: var(--bg); }
+.phone video[hidden], .phone[hidden] { display: none; }
+.play-overlay { position: absolute; z-index: 5; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(88%, 19rem); padding: 1.1rem 1rem; border: 1px solid oklch(0.82 0.19 25); border-radius: .85rem; background: var(--neon); color: white; font: 800 .95rem/1.5 var(--font-sans); letter-spacing: .025em; box-shadow: 0 0 18px oklch(0.62 0.28 25 / .8), 0 0 36px oklch(0.58 0.25 25 / .45); cursor: pointer; animation: pulse 2.1s ease-in-out infinite; }
+.play-overlay:active { transform: translate(-50%, -50%) scale(.97); }
+.play-overlay[hidden] { display: none; }
+.offer { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; margin-top: 1.8rem; }
+.timer { border: 1px solid oklch(0.72 0.16 78 / .3); background: oklch(0.72 0.16 78 / .05); border-radius: .75rem; padding: 1rem 1.4rem; }
+.timer p { margin: 0; }
+.timer .t1 { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.timer .t2 { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
+.clock { display: flex; justify-content: center; gap: .5rem; margin-top: .75rem; font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700; letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.clock .sep { color: var(--accent); }
+.units { display: flex; justify-content: center; gap: 1.4rem; margin-top: .25rem; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.timer[hidden] { display: none; }
+.price-label { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.price { font-family: var(--font-display); font-size: clamp(3rem, 14vw, 3.75rem); font-weight: 900; color: var(--accent); line-height: 1.1; margin: 0; }
+.cta { display: inline-flex; align-items: center; gap: .5rem; padding: 1rem 1.7rem; border-radius: .5rem; font-weight: 700; font-size: 1rem; text-decoration: none; color: oklch(0.99 0.01 25); background: var(--neon); box-shadow: 0 0 10px oklch(0.62 0.28 25 / .9), 0 0 24px oklch(0.58 0.25 25 / .72), 0 0 48px oklch(0.52 0.24 25 / .42); animation: pulse 2.1s ease-in-out infinite; transition: transform .3s, background .3s; }
+.cta:hover { background: var(--neon-hi); transform: scale(1.03); }
+.cta:active { transform: scale(.98); }
+.cta svg { width: 1.25rem; height: 1.25rem; transition: transform .2s; }
+.cta:hover svg:last-child { transform: translateX(4px); }
+.fine { font-size: .75rem; color: var(--muted); margin: 0; }
+.pitch { max-width: 36rem; margin: 2.5rem auto 0; font-size: 1.05rem; line-height: 1.9; color: oklch(0.93 0.005 78 / .9); }
+.grid { display: grid; gap: .75rem; grid-template-columns: 1fr; text-align: left; }
+.cat { display: flex; align-items: center; gap: .75rem; padding: 1rem; border: 1px solid var(--line); border-radius: .75rem; background: oklch(0.165 0.003 30 / .6); transition: border-color .2s; min-width: 0; }
+.cat:hover { border-color: oklch(0.72 0.16 78 / .4); }
+.cat .ic { padding: .5rem; border-radius: .5rem; background: oklch(0.72 0.16 78 / .15); color: var(--accent); display: grid; place-items: center; }
+.cat svg { width: 1.25rem; height: 1.25rem; }
+.cat span.t { font-size: .9rem; font-weight: 600; }
+.list { display: grid; gap: .5rem; grid-template-columns: 1fr; text-align: left; }
+.list div { display: flex; gap: .6rem; padding: .75rem 1rem; border: 1px solid oklch(0.24 0.005 30 / .6); border-radius: .5rem; background: oklch(0.165 0.003 30 / .4); font-size: .9rem; color: oklch(0.93 0.005 78 / .85); min-width: 0; }
+.list b { color: var(--accent); font-weight: 400; }
+.note { font-size: .85rem; font-style: italic; color: var(--muted); margin: -.8rem 0 1.5rem; }
+.features { display: grid; gap: .75rem; max-width: 38rem; margin: 0 auto; text-align: left; }
+.features div { display: flex; align-items: center; gap: .75rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: .75rem; background: oklch(0.165 0.003 30 / .5); font-size: .9rem; color: oklch(0.93 0.005 78 / .85); }
+.features svg { width: 1.25rem; height: 1.25rem; flex: none; color: var(--accent); }
+.quotes { display: grid; gap: 1.5rem; text-align: left; }
+.quote-card { border: 1px solid var(--line); border-radius: 1rem; background: oklch(0.165 0.003 30 / .6); padding: 1.5rem; box-shadow: 0 10px 15px oklch(0 0 0 / .1); }
+.quote-card header { display: flex; align-items: center; gap: 1rem; }
+.quote-card img { width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px oklch(0.72 0.16 78 / .35); }
+.quote-card h3 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; }
+.quote-card p { margin: 1rem 0 0; line-height: 1.8; color: oklch(0.93 0.005 78 / .9); }
+#testimonials[hidden] { display: none; }
+blockquote { margin: 1rem auto 0; max-width: 36rem; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 4.5vw, 1.6rem); line-height: 1.6; }
+.promo-tag { display: inline-block; margin-top: 2rem; border: 1px solid oklch(0.72 0.16 78 / .3); background: oklch(0.72 0.16 78 / .1); color: var(--accent); border-radius: 999px; padding: .4rem 1rem; font-size: .875rem; font-weight: 600; }
+footer { border-top: 1px solid var(--line); padding: 2rem 0; text-align: center; position: relative; z-index: 1; }
+footer p { margin: 0; color: var(--muted); }
+footer .n { font-family: var(--font-display); font-weight: 700; }
+footer .c { font-size: .75rem; margin-top: .25rem; opacity: .6; }
+.fake-tag { display: inline-block; border: 1px dashed oklch(0.72 0.16 78 / .7); color: var(--accent); border-radius: 999px; padding: .1rem .55rem; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.sale { position: fixed; z-index: 50; top: calc(env(safe-area-inset-top, 0px) + 1rem); left: max(16px, env(safe-area-inset-left, 0px)); width: min(20rem, calc(100vw - 2rem)); display: flex; gap: .75rem; border: 1px solid oklch(0.72 0.16 78 / .28); border-radius: .75rem; background: oklch(0.12 0.008 30 / .96); padding: .8rem .9rem; box-shadow: 0 10px 30px oklch(0 0 0 / .45), 0 0 18px oklch(0.72 0.16 78 / .12); opacity: 0; pointer-events: none; transform: translateX(-1.5rem); transition: opacity .45s, transform .45s; text-align: left; }
+.sale.show { opacity: 1; transform: translateX(0); }
+.sale svg { width: 1.25rem; height: 1.25rem; flex: none; color: var(--accent); margin-top: .1rem; }
+.sale p { margin: 0; }
+.sale .k { font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.sale .who { margin-top: .15rem; font-size: .8rem; font-weight: 700; }
+.sale .what { margin-top: .2rem; font-size: .72rem; color: var(--muted); line-height: 1.35; }
+.sale .fake-tag { margin-top: .4rem; }
+.quote-card .fake-tag { margin-left: auto; }
+.phone::before { content: ""; position: absolute; left: 50%; top: .65rem; z-index: 2; width: 5rem; height: 1.25rem; transform: translateX(-50%); border-radius: 999px; background: var(--bg); }
+.phone::after { content: ""; position: absolute; left: 50%; bottom: .75rem; z-index: 2; width: 7rem; height: 4px; transform: translateX(-50%); border-radius: 999px; background: oklch(0.93 0.005 78 / .2); }
+.ph { height: 100%; display: grid; place-content: center; justify-items: center; gap: .75rem; padding: 1.5rem; text-align: center; background: radial-gradient(ellipse at center, oklch(0.25 0.08 25 / .6), var(--bg) 70%); color: var(--muted); font-size: .85rem; }
+.ph svg { width: 3.5rem; height: 3.5rem; color: var(--accent); }
+.ph[hidden] { display: none; }
+.snd { position: absolute; z-index: 3; left: 50%; bottom: 1.4rem; transform: translateX(-50%); display: inline-flex; align-items: center; gap: .5rem; border: 1px solid oklch(0.72 0.16 78 / .6); background: oklch(0.12 0.008 30 / .92); color: var(--accent); border-radius: 999px; padding: .7rem 1.2rem; font: 700 .9rem var(--font-sans); cursor: pointer; box-shadow: 0 6px 20px oklch(0 0 0 / .5), 0 0 16px oklch(0.72 0.16 78 / .25); transition: transform .2s, background .2s; white-space: nowrap; }
+.snd:hover { background: oklch(0.2 0.02 60 / .95); transform: translateX(-50%) scale(1.04); }
+.snd:active { transform: translateX(-50%) scale(.97); }
+.snd svg { width: 1.2rem; height: 1.2rem; }
+.snd[hidden] { display: none; }
+.samples { display: flex; flex-direction: column; align-items: center; gap: .75rem; max-width: 40rem; margin: 2.5rem auto 0; }
+.sample { display: inline-block; border: 1px solid oklch(0.72 0.16 78 / .4); background: oklch(0.72 0.16 78 / .1); color: var(--accent); border-radius: .5rem; padding: .75rem 1.5rem; font-weight: 600; text-decoration: none; transition: background .2s, transform .2s; }
+.sample:hover { background: oklch(0.72 0.16 78 / .2); }
+.sample:active { transform: scale(.98); }
+.statbox { max-width: 42rem; margin: 0 auto; border: 1px solid oklch(0.72 0.16 78 / .2); border-radius: 1rem; background: oklch(0.165 0.003 30 / .6); padding: 1.75rem; }
+.statbox .row { display: grid; gap: 1.75rem; grid-template-columns: 1fr; }
+.statbox .big { font-family: var(--font-display); font-size: clamp(2.6rem, 10vw, 3rem); font-weight: 900; color: var(--accent); line-height: 1.1; }
+.statbox p { margin: .5rem 0 0; font-size: .875rem; color: var(--muted); }
+.avatar { width: 3.5rem; height: 3.5rem; border-radius: 50%; flex: none; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--accent); background: oklch(0.72 0.16 78 / .12); box-shadow: 0 0 0 2px oklch(0.72 0.16 78 / .35); }
+.stars { margin: .25rem 0 0 !important; font-size: .875rem; letter-spacing: .03em; color: var(--accent) !important; line-height: 1.2 !important; }
+.whoblock { min-width: 0; }
+.contacts { position: fixed; z-index: 60; top: 50%; transform: translateY(-50%); left: calc(env(safe-area-inset-left, 0px) + .75rem); display: flex; flex-direction: column; gap: .75rem; }
+.contacts[hidden], .contact[hidden] { display: none; }
+.contact { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; border: 1px solid; border-radius: 999px; padding: .7rem; font-size: .8rem; font-weight: 800; text-decoration: none; transition: transform .2s, filter .2s; box-shadow: 0 0 12px currentColor, 0 0 28px currentColor, inset 0 0 12px oklch(1 0 0 / .16); }
+.contact:hover { filter: brightness(1.18); transform: scale(1.06); }
+.contact:active { transform: scale(.97); }
+.contact svg { width: 1.7rem; height: 1.7rem; fill: currentColor; }
+.contact span { display: none; }
+.wa { background: var(--wa); border-color: oklch(0.78 0.2 145); color: oklch(0.98 0.03 145); }
+.tg { background: var(--tg); border-color: oklch(0.8 0.16 240); color: oklch(0.98 0.02 240); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@keyframes pulse { 0%, 100% { filter: brightness(.94); } 50% { filter: brightness(1.16); } }
+@media (min-width: 640px) {
+  .statbox .row { grid-template-columns: 1fr 1fr; }
+  .statbox { padding: 2.5rem; }
+  .grid, .list { grid-template-columns: 1fr 1fr; }
+  .contacts { left: calc(env(safe-area-inset-left, 0px) + 1rem); width: 9.5rem; }
+  .contact { padding: .7rem 1rem; justify-content: flex-start; }
+  .contact span { display: inline; }
+  .contact svg { width: 1.75rem; height: 1.75rem; }
+  .quote-card { padding: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .cta, .neon-badge { animation: none; } * { transition: none !important; } }
+
+/* Vitrine La Máfia 121 */
+.brand-mark{font-family:var(--font-display);font-weight:900;font-size:clamp(2.7rem,12vw,4.4rem);line-height:1;letter-spacing:-.04em;text-shadow:0 0 24px oklch(0.58 0.25 25 / .35)}
+.brand-mark span{color:var(--neon-hi)}.brand-sub{margin:.8rem auto 0;color:var(--muted);max-width:34rem;font-size:1rem}
+.plan-grid{display:grid;grid-template-columns:1fr;gap:.9rem;max-width:42rem;margin:0 auto;text-align:left}
+.plan-card{border:1px solid var(--line);border-radius:1rem;padding:1.25rem;background:linear-gradient(145deg,oklch(.19 .015 25 / .95),oklch(.14 .005 25 / .98));box-shadow:0 12px 28px oklch(0 0 0 / .22)}
+.plan-card.featured{border-color:oklch(.62 .25 25 / .8);box-shadow:0 0 22px oklch(.58 .25 25 / .16)}
+.plan-name{margin:0;color:var(--fg);font:800 .85rem var(--font-sans);letter-spacing:.13em}.plan-price{margin:.45rem 0 .2rem;color:var(--accent);font:900 clamp(2rem,8vw,2.6rem)/1.1 var(--font-display)}.plan-detail{margin:0;color:var(--muted);font-size:.88rem}
+.plan-cta{display:flex;justify-content:center;align-items:center;margin-top:1rem;width:100%;padding:.85rem 1rem;border-radius:.55rem;background:var(--neon);color:white;text-decoration:none;font-weight:800;box-shadow:0 0 16px oklch(.58 .25 25 / .28)}.plan-cta:hover{background:var(--neon-hi)}
+.section-copy{max-width:37rem;margin:-.5rem auto 1.5rem;color:var(--muted)}.device-list{display:grid;gap:.75rem;grid-template-columns:1fr 1fr;max-width:38rem;margin:1.5rem auto 0}.device-item{border:1px solid var(--line);border-radius:.75rem;padding:1rem .6rem;background:oklch(.165 .003 30 / .5);font-weight:700;font-size:.85rem}
+.faq-list{display:grid;gap:.7rem;max-width:38rem;margin:0 auto;text-align:left}.faq-item{padding:1rem 1.1rem;border:1px solid var(--line);border-radius:.75rem;background:oklch(.165 .003 30 / .5)}.faq-item h3{font:700 .95rem var(--font-sans);color:var(--accent)}.faq-item p{margin:.45rem 0 0;color:var(--muted);font-size:.88rem}
+@media(min-width:520px){.plan-grid{grid-template-columns:1fr 1fr}}
+
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<canvas id="embers" aria-hidden="true"></canvas>
+
+<div class="sale" id="sale" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+  <div><p class="k">promoção exclusiva por apenas R$ 17,99 por tempo limitado</p><p class="who" id="saleWho"></p><p class="what" id="saleWhat"></p></div>
+</div>
+
+<nav class="contacts" id="contacts" aria-label="Fale conosco" hidden>
+  <a class="contact tg" id="tg" href="#" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo Telegram" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.44 2.02 1.7 10.02c-1.42.57-1.4 1.37-.26 1.72l5.32 1.66 2.04 6.28c.25.7.13.98.86.98.57 0 .82-.26 1.12-.57l2.58-2.51 5.37 3.96c.99.55 1.7.26 1.95-.92l3.52-16.6c.37-1.46-.56-2.12-1.76-1.5ZM9.95 13.03l9.86-6.22c.49-.3.94-.14.57.19l-7.98 7.2-.31 3.34-2.14-4.51Z"/></svg><span>Telegram</span></a>
+</nav>
+
+<div class="wrap">
+<main>
+<section><span class="eyebrow">🔥 SUA EXPERIÊNCIA DE ENTRETENIMENTO</span><h1 class="brand-mark">LA MÁFIA <span>121</span></h1><p class="brand-sub">Entretenimento, praticidade e variedade em uma experiência centralizada.</p><div class="rule"><i></i></div><p class="lead">Cansado de procurar conteúdo em vários lugares? Conheça nossos planos e fale com a equipe para encontrar a opção ideal para você.</p>
+<div class="neon-badge">⚠️ ASSISTA AO VÍDEO E CONHEÇA A LA MÁFIA 121</div>
+<div class="phone" id="phone">
+  <div class="screen">
+    <div class="ph" id="ph"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg><span id="phText">Vídeo de apresentação da La Máfia 121</span><a class="sample" id="phLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir vídeo</a></div>
+    <video id="nativeVideo" hidden controls autoplay muted playsinline></video>
+    <button class="snd" id="snd" type="button" aria-pressed="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="m22 9-6 6"></path><path d="m16 9 6 6"></path></svg><span id="sndText">Ativar som</span></button>
+    <button class="play-overlay" id="ytPlay" type="button" hidden>▶ CLIQUE AQUI PARA<br>REPRODUZIR COM SOM</button>
+    <iframe id="youtubePlayer" hidden title="Vídeo de apresentação da La Máfia 121" allow="autoplay; encrypted-media" playsinline></iframe>
+  </div>
+</div>
+<div class="offer" style="margin-top:1.6rem"><a class="cta" href="https://t.me/ELPROFESSOR121" target="_blank" rel="noopener noreferrer">FALE COM NOSSA EQUIPE</a><p class="fine">Atendimento pelo Telegram • @ELPROFESSOR121</p><a class="plan-cta" href="https://t.me/lamafia121" target="_blank" rel="noopener noreferrer" aria-label="Entrar no canal La Máfia 121">📢 ENTRAR NO CANAL LA MÁFIA 121</a><p class="fine">Novidades, avisos e promoções no nosso canal oficial.</p></div></section>
+<section id="planos"><span class="eyebrow">✨ ESCOLHA SEU PLANO</span><h2 style="margin-top:1rem">Nossos planos</h2><p class="section-copy">Opções para diferentes períodos de acesso. Confira os detalhes e solicite sua contratação pelo atendimento.</p><div class="plan-grid">
+<article class="plan-card"><p class="plan-name">⚡ PROMOÇÃO RELÂMPAGO</p><p class="plan-price">R$ 17,99</p><p class="plan-detail">2 telas • 30 dias • Exclusivo para novos membros</p><a class="plan-cta" href="https://pay.cakto.com.br/3f3dyft" target="_blank" rel="noopener noreferrer">IR PARA O CHECKOUT</a></article>
+<article class="plan-card"><p class="plan-name">TRIMESTRAL</p><p class="plan-price">R$ 50,00</p><p class="plan-detail">2 telas • 90 dias</p><a class="plan-cta" href="https://pay.cakto.com.br/4gq7595" target="_blank" rel="noopener noreferrer">IR PARA O CHECKOUT</a></article>
+<article class="plan-card"><p class="plan-name">SEMESTRAL</p><p class="plan-price">R$ 60,00</p><p class="plan-detail">2 telas • 180 dias</p><a class="plan-cta" href="https://pay.cakto.com.br/349g9ka" target="_blank" rel="noopener noreferrer">IR PARA O CHECKOUT</a></article>
+<article class="plan-card featured"><p class="plan-name">ANUAL VIP</p><p class="plan-price">R$ 97,00</p><p class="plan-detail">4 telas • 365 dias</p><a class="plan-cta" href="https://pay.cakto.com.br/6a4nzey" target="_blank" rel="noopener noreferrer">IR PARA O CHECKOUT</a></article></div></section>
+<section><h2>Entretenimento em um só lugar</h2><p class="section-copy">Uma experiência prática para aproveitar uma programação variada, com catálogo de filmes e séries e opções de qualidade de imagem conforme a disponibilidade do conteúdo e do dispositivo.</p><div class="features"><div><span>✓</span><span>Programação variada e atualizada</span></div><div><span>✓</span><span>Catálogo de filmes e séries</span></div><div><span>✓</span><span>Opções de imagem HD e Full HD, conforme disponibilidade</span></div><div><span>✓</span><span>Reprodução conforme sua conexão e dispositivo</span></div></div><div class="device-list"><div class="device-item">📱 Celular</div><div class="device-item">📺 Smart TV</div><div class="device-item">📦 TV Box</div><div class="device-item">💻 Computador</div></div></section>
+<section><div class="rule"><i></i></div><h2>Como contratar?</h2><div class="statbox"><div class="row"><div><div class="big">01</div><p>Escolha o plano que combina com você.</p></div><div><div class="big">02</div><p>Chame nossa equipe no Telegram.</p></div><div><div class="big">03</div><p>Confirme os detalhes e a compatibilidade do seu aparelho.</p></div><div><div class="big">04</div><p>Receba as orientações para começar.</p></div></div></div></section>
+<section><h2>Dúvidas frequentes</h2><div class="faq-list"><article class="faq-item"><h3>Como faço para contratar?</h3><p>Escolha um dos planos e toque no botão para falar com nosso atendimento pelo Telegram.</p></article><article class="faq-item"><h3>Em quais aparelhos posso utilizar?</h3><p>Consulte nossa equipe para confirmar a compatibilidade do aplicativo e do seu dispositivo.</p></article><article class="faq-item"><h3>A qualidade é HD ou Full HD?</h3><p>A qualidade depende da disponibilidade de cada conteúdo, do aparelho e da velocidade da sua conexão.</p></article></div></section>
+<section><span class="eyebrow">🚀 FALE COM A LA MÁFIA 121</span><h2 style="margin-top:1rem">Vamos encontrar seu plano?</h2><p class="section-copy">Nossa equipe pode apresentar as opções e orientar você durante a contratação.</p><a class="cta" href="https://t.me/ELPROFESSOR121" target="_blank" rel="noopener noreferrer">CHAMAR NO TELEGRAM</a><p class="fine" style="margin-top:1rem">@ELPROFESSOR121</p></section>
+</main>
+<footer><p class="n">LA MÁFIA 121</p><p class="c">© 2026 — Todos os direitos reservados.</p></footer>
+</div>
+
+<script>
+/* ===== CONFIGURAÇÃO: edite só este bloco ===== */
+const CONFIG = {
+  price: "",
+  offerTitle: "",
+  offerEndsAt: "",
+  checkoutUrl: "https://t.me/ELPROFESSOR121",
+  telegram: "ELPROFESSOR121",
+  videoSrc: "",
+  videoId: "hEXIwvPtV4w",
+  samples: [],
+  titles: [],
+  testimonials: [],
+  sales: [
+    { who: 'Lucas Andrade • São Paulo', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Mariana Costa • Rio de Janeiro', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Gabriel Oliveira • Belo Horizonte', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Ana Clara Martins • Salvador', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Rafael Souza • Curitiba', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Beatriz Lima • Recife', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Matheus Ferreira • Fortaleza', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Isabela Rocha • Porto Alegre', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Pedro Henrique Alves • Goiânia', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Camila Ribeiro • Manaus', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'João Victor Gomes • Belém', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Larissa Carvalho • Florianópolis', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Bruno Mendes • Natal', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Juliana Nascimento • João Pessoa', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Felipe Cardoso • Campo Grande', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Vitória Barros • Maceió', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Thiago Azevedo • Teresina', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Letícia Freitas • Aracaju', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'André Luiz Moreira • Cuiabá', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Gabriela Teixeira • São Luís', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Diego Monteiro • Vitória', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Amanda Correia • Santos', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Eduardo Batista • Uberlândia', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Nicole Ramos • Campinas', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Vinícius Duarte • Londrina', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Yasmin Melo • Maringá', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Leonardo Pires • Joinville', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Sophia Castro • Niterói', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Gustavo Tavares • Juiz de Fora', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Emanuela Dias • Caxias do Sul', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Caio Fernandes • Ribeirão Preto', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Manuela Lopes • Blumenau', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Henrique Vieira • Pelotas', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Alice Machado • Cascavel', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Samuel Reis • Petrolina', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Clara Farias • Ilhéus', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Davi Barbosa • Itabuna', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Luana Pinto • Caruaru', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Enzo Moraes • Mossoró', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Helena Cunha • Marabá', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Arthur Nogueira • Ponta Grossa', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Laura Campos • Bauru', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Miguel Araújo • Chapecó', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Cecília Peixoto • Barreiras', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Bernardo Sales • Juazeiro', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Maitê Dantas • Parnaíba', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Murilo Rezende • Rio Branco', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Elisa Siqueira • Boa Vista', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Otávio Macedo • Macapá', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" },
+    { who: 'Esther Borges • Porto Velho', what: "promoção exclusiva por apenas R$ 17,99 por tempo limitado • BEM-VINDOS" }
+  ]
+};
+/* ============================================= */
+
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var all = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  all("[data-price]").forEach(function (e) { e.textContent = CONFIG.price; });
+  all("[data-offer-title]").forEach(function (e) { e.textContent = CONFIG.offerTitle; });
+
+  all("[data-checkout]").forEach(function (e) {
+    if (CONFIG.checkoutUrl && CONFIG.checkoutUrl !== "#") {
+      e.href = CONFIG.checkoutUrl;
+    } else {
+      e.href = "#";
+      e.addEventListener("click", function (event) {
+        event.preventDefault();
+        alert("O link de checkout ainda precisa ser configurado.");
+      });
+    }
+  });
+
+  var list = $("#titles");
+  CONFIG.titles.forEach(function (t) {
+    var d = document.createElement("div");
+    var b = document.createElement("b"); b.textContent = "✓";
+    var s = document.createElement("span"); s.textContent = t;
+    d.appendChild(b); d.appendChild(s); list.appendChild(d);
+  });
+
+  if (CONFIG.testimonials.length) {
+    $("#testimonials").hidden = false;
+    CONFIG.testimonials.forEach(function (t) {
+      var a = document.createElement("article"); a.className = "quote-card";
+      var h = document.createElement("header");
+      if (t.photo) { var i = document.createElement("img"); i.src = t.photo; i.alt = "Foto de " + t.name; h.appendChild(i); }
+      else { var av = document.createElement("div"); av.className = "avatar"; av.setAttribute("aria-hidden", "true"); av.textContent = t.name.charAt(0); h.appendChild(av); }
+      var wb = document.createElement("div"); wb.className = "whoblock";
+      var n = document.createElement("h3"); n.textContent = t.name; wb.appendChild(n);
+      var st = document.createElement("p"); st.className = "stars"; st.textContent = "5.0 ★★★★★"; wb.appendChild(st);
+      h.appendChild(wb);
+      var p = document.createElement("p"); p.textContent = "“" + t.text + "”";
+      
+      a.appendChild(h); a.appendChild(p); $("#quotes").appendChild(a);
+    });
+  }
+
+  if (CONFIG.videoSrc) {
+    var vd = $("#nativeVideo"), vb = $("#snd");
+    vd.src = CONFIG.videoSrc; vd.muted = true; vd.hidden = false; $("#ph").hidden = true; vb.hidden = false;
+    var pl = vd.play(); if (pl && pl.catch) pl.catch(function () {});
+    vb.addEventListener("click", function () {
+      vd.muted = !vd.muted;
+      if (!vd.muted) { vd.volume = 1; var p2 = vd.play(); if (p2 && p2.catch) p2.catch(function () {}); }
+      vb.setAttribute("aria-pressed", String(!vd.muted));
+      $("#sndText").textContent = vd.muted ? "Ativar som" : "Desativar som";
+    });
+  } else if (CONFIG.videoId) {
+    var yt = $("#youtubePlayer"), ytPlay = $("#ytPlay");
+    /* Inicia com áudio após toque. rel=0 limita sugestões ao mesmo canal; loop=1 + playlist repete este vídeo para evitar a tela final de recomendações. A marca e alguns links do YouTube continuam sob controle da plataforma. */
+    yt.hidden = true;
+    ytPlay.hidden = false;
+    ytPlay.addEventListener("click", function () {
+      yt.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(CONFIG.videoId) + "?autoplay=1&mute=0&playsinline=1&rel=0&loop=1&playlist=" + encodeURIComponent(CONFIG.videoId) + "&controls=0&disablekb=1&fs=0&iv_load_policy=3";
+      yt.hidden = false;
+      $("#ph").hidden = true;
+      ytPlay.hidden = true;
+    });
+  }
+
+  CONFIG.samples.forEach(function (x) {
+    var a = document.createElement("a"); a.className = "sample"; a.href = x.url || "#";
+    a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = x.label + " ";
+    if (!x.url) {
+      a.addEventListener("click", function (event) { event.preventDefault(); alert("O link desta amostra ainda precisa ser configurado."); });
+      var t = document.createElement("span"); t.className = "fake-tag"; t.textContent = "exemplo"; a.appendChild(t);
+    }
+    $("#samples").appendChild(a);
+  });
+
+  if (CONFIG.telegram) {
+    $("#tg").href = "https://t.me/" + CONFIG.telegram.replace(/^@/, "");
+    $("#tg").hidden = false;
+  }
+  $("#contacts").hidden = !CONFIG.telegram;
+
+  if (CONFIG.offerEndsAt) {
+    var end = new Date(CONFIG.offerEndsAt).getTime();
+    var timers = all("[data-timer]");
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    var tick = function () {
+      var left = Math.floor((end - Date.now()) / 1000);
+      var ok = !isNaN(end) && left > 0;
+      timers.forEach(function (t) {
+        t.hidden = !ok;
+        if (!ok) return;
+        t.querySelector("[data-h]").textContent = pad(Math.floor(left / 3600));
+        t.querySelector("[data-m]").textContent = pad(Math.floor((left % 3600) / 60));
+        t.querySelector("[data-s]").textContent = pad(left % 60);
+      });
+      return ok;
+    };
+    if (tick()) { var iv = setInterval(function () { if (!tick()) clearInterval(iv); }, 1000); }
+  }
+
+  var sale = $("#sale");
+  if (CONFIG.sales && CONFIG.sales.length) {
+    var remainingSales = [];
+    var lastSaleIndex = -1;
+    var saleTimer = null;
+
+    var shuffleSales = function () {
+      var deck = CONFIG.sales.map(function (_, index) { return index; });
+      for (var i = deck.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = deck[i]; deck[i] = deck[j]; deck[j] = temp;
+      }
+      /* Evita repetir a última identidade na virada de um ciclo. */
+      if (deck.length > 1 && deck[0] === lastSaleIndex) {
+        var swapIndex = 1 + Math.floor(Math.random() * (deck.length - 1));
+        var first = deck[0]; deck[0] = deck[swapIndex]; deck[swapIndex] = first;
+      }
+      remainingSales = deck;
+    };
+
+    var randomInterval = function () {
+      return (2 + Math.floor(Math.random() * 5)) * 1000;
+    };
+
+    var showSale = function () {
+      if (!remainingSales.length) shuffleSales();
+      var currentIndex = remainingSales.shift();
+      var item = CONFIG.sales[currentIndex];
+      lastSaleIndex = currentIndex;
+
+      $("#saleWho").textContent = item.who;
+      $("#saleWhat").textContent = item.what;
+      sale.classList.add("show");
+
+      /* Mantém uma única notificação visível; aguarda a saída antes da próxima. */
+      saleTimer = setTimeout(function () {
+        sale.classList.remove("show");
+        saleTimer = setTimeout(showSale, randomInterval());
+      }, 4000);
+    };
+
+    setTimeout(showSale, 2500);
+  } else {
+    sale.hidden = true;
+  }
+
+  var cv = $("#embers"), cx = cv.getContext && cv.getContext("2d");
+  if (cx && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var W, H, dots = [];
+    var size = function () { W = cv.width = innerWidth; H = cv.height = innerHeight; };
+    size(); addEventListener("resize", size);
+    for (var k = 0; k < 40; k++) dots.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.6 + .4, v: Math.random() * .0004 + .0001, a: Math.random() * .5 + .15 });
+    (function draw() {
+      cx.clearRect(0, 0, W, H);
+      dots.forEach(function (d) {
+        d.y -= d.v; if (d.y < -.02) { d.y = 1.02; d.x = Math.random(); }
+        cx.beginPath(); cx.arc(d.x * W, d.y * H, d.r, 0, 6.283);
+        cx.fillStyle = "rgba(214,160,60," + d.a + ")"; cx.fill();
+      });
+      requestAnimationFrame(draw);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
