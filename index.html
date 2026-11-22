@@ -190,8 +190,7 @@ footer .c { font-size: .75rem; margin-top: .25rem; opacity: .6; }
 <div class="neon-badge">⚠️ ASSISTA AO VÍDEO E CONHEÇA A LA MÁFIA 121</div>
 <div class="phone" id="phone">
   <div class="screen">
-    <div class="ph" id="ph"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg><span id="phText">Vídeo de apresentação da La Máfia 121</span><a class="sample" id="phLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir vídeo</a></div>
-    <video id="nativeVideo" hidden controls autoplay muted loop playsinline preload="auto"></video>
+    <video id="nativeVideo" controls autoplay muted loop playsinline preload="auto"></video>
     <button class="snd" id="snd" type="button" aria-pressed="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="m22 9-6 6"></path><path d="m16 9 6 6"></path></svg><span id="sndText">Ativar som</span></button>
     <button class="play-overlay" id="ytPlay" type="button" hidden>▶ CLIQUE AQUI PARA<br>REPRODUZIR COM SOM</button>
     <iframe id="youtubePlayer" hidden title="Vídeo de apresentação da La Máfia 121" allow="autoplay; encrypted-media" playsinline></iframe>
@@ -324,31 +323,32 @@ const CONFIG = {
   }
 
   if (CONFIG.videoSrc) {
-    var vd = $("#nativeVideo"), vb = $("#snd"), ytPlay = $("#ytPlay");
+    var vd = $("#nativeVideo"), vb = $("#snd"), sndText = $("#sndText");
     vd.src = CONFIG.videoSrc;
     vd.muted = true;
     vd.volume = 1;
     vd.loop = true;
     vd.autoplay = true;
     vd.hidden = false;
-    $("#ph").hidden = true;
 
-    /* Autoplay compatível com navegadores: começa mutado e em loop.
-       O toque no botão libera o áudio em volume máximo. */
-    ytPlay.hidden = false;
-    ytPlay.textContent = "▶ TOQUE PARA ATIVAR O SOM";
-    ytPlay.addEventListener("click", function () {
+    /* Autoplay compatível: começa mutado; o visitante libera o áudio ao tocar. */
+    vb.hidden = false;
+    vb.addEventListener("click", function () {
       vd.muted = false;
       vd.volume = 1;
       var playAttempt = vd.play();
       if (playAttempt && playAttempt.then) {
         playAttempt.then(function () {
-          ytPlay.hidden = true;
+          sndText.textContent = "Som ativado";
+          vb.setAttribute("aria-pressed", "true");
         }).catch(function () {
-          ytPlay.hidden = false;
+          vd.muted = true;
+          sndText.textContent = "Toque para ativar o som";
+          vb.setAttribute("aria-pressed", "false");
         });
       } else {
-        ytPlay.hidden = true;
+        sndText.textContent = "Som ativado";
+        vb.setAttribute("aria-pressed", "true");
       }
     });
 
