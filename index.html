@@ -191,7 +191,7 @@ footer .c { font-size: .75rem; margin-top: .25rem; opacity: .6; }
 <div class="phone" id="phone">
   <div class="screen">
     <div class="ph" id="ph"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg><span id="phText">Vídeo de apresentação da La Máfia 121</span><a class="sample" id="phLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir vídeo</a></div>
-    <video id="nativeVideo" hidden controls playsinline preload="auto"></video>
+    <video id="nativeVideo" hidden controls autoplay muted loop playsinline preload="auto"></video>
     <button class="snd" id="snd" type="button" aria-pressed="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="m22 9-6 6"></path><path d="m16 9 6 6"></path></svg><span id="sndText">Ativar som</span></button>
     <button class="play-overlay" id="ytPlay" type="button" hidden>▶ CLIQUE AQUI PARA<br>REPRODUZIR COM SOM</button>
     <iframe id="youtubePlayer" hidden title="Vídeo de apresentação da La Máfia 121" allow="autoplay; encrypted-media" playsinline></iframe>
@@ -326,27 +326,17 @@ const CONFIG = {
   if (CONFIG.videoSrc) {
     var vd = $("#nativeVideo"), vb = $("#snd"), ytPlay = $("#ytPlay");
     vd.src = CONFIG.videoSrc;
-    vd.muted = false;
+    vd.muted = true;
     vd.volume = 1;
+    vd.loop = true;
+    vd.autoplay = true;
     vd.hidden = false;
     $("#ph").hidden = true;
 
-    /* Tenta iniciar com áudio. Se o navegador bloquear autoplay com som,
-       apresenta um único botão de reprodução; o toque libera o áudio. */
-    var startWithSound = function () {
-      vd.muted = false;
-      vd.volume = 1;
-      var playAttempt = vd.play();
-      if (playAttempt && playAttempt.catch) {
-        playAttempt.catch(function () {
-          ytPlay.hidden = false;
-          ytPlay.textContent = "▶ TOQUE PARA ASSISTIR COM SOM";
-        });
-      }
-    };
-
+    /* Autoplay compatível com navegadores: começa mutado e em loop.
+       O toque no botão libera o áudio em volume máximo. */
     ytPlay.hidden = false;
-    ytPlay.textContent = "▶ TOQUE PARA ASSISTIR COM SOM";
+    ytPlay.textContent = "▶ TOQUE PARA ATIVAR O SOM";
     ytPlay.addEventListener("click", function () {
       vd.muted = false;
       vd.volume = 1;
@@ -362,8 +352,9 @@ const CONFIG = {
       }
     });
 
-    /* Tentativa automática com volume máximo; pode ser bloqueada pelo navegador. */
-    startWithSound();
+    /* Inicia automaticamente sem som; o navegador permite autoplay mutado. */
+    var mutedAutoplay = vd.play();
+    if (mutedAutoplay && mutedAutoplay.catch) mutedAutoplay.catch(function () {});
     } else if (CONFIG.videoId) {
     var yt = $("#youtubePlayer"), ytPlay = $("#ytPlay");
     /* Inicia com áudio após toque. rel=0 limita sugestões ao mesmo canal; loop=1 + playlist repete este vídeo para evitar a tela final de recomendações. A marca e alguns links do YouTube continuam sob controle da plataforma. */
